@@ -1,4 +1,5 @@
 from collections import deque
+import networkx as nx
 
 
 graph = {
@@ -31,4 +32,18 @@ def person_is_seller(name):
     return name[-1] == 'm'  # Example condition to identify a seller
 print(search('you'))
 print(search('anuj'))
+
+import matplotlib.pyplot as plt
+
+def visualize_graph(graph):
+    G = nx.DiGraph()
+    for node in graph:
+        for neighbor in graph[node]:
+            G.add_edge(node, neighbor)
+    
+    pos = nx.spring_layout(G)
+    nx.draw(G, pos, with_labels=True, node_size=2000, node_color='skyblue', font_size=15, font_weight='bold', arrows=True)
+    plt.show()
+
+visualize_graph(graph)
     
