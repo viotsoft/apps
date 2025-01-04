@@ -25,3 +25,8 @@ for question in questions:
         print("You are telling the truth")
     else:
         print("You are lying")   
+
+        # Ask if the user wants to continue
+        continue_game = input("Do you want to continue? (yes or no): ").lower()
+        if continue_game != "yes":
+            break
